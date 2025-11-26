@@ -58,6 +58,8 @@ QuadrupedController::QuadrupedController(ros::NodeHandle *nh, ros::NodeHandle *p
     pnh->getParam("joint_controller_topic",     joint_control_topic);
     pnh->getParam("loop_rate",                  loop_rate);
 
+    //cmd_vel_subscriber_ = nh->subscribe("chrono/vel", 1, &QuadrupedController::cmdVelCallback_, this);
+    //cmd_vel_subscriber_ = nh->subscribe("chrono/cmd_vel/smooth", 1, &QuadrupedController::cmdVelCallback_, this);
     cmd_vel_subscriber_ = nh->subscribe("cmd_vel/smooth", 1, &QuadrupedController::cmdVelCallback_, this);
     cmd_pose_subscriber_ = nh->subscribe("body_pose", 1, &QuadrupedController::cmdPoseCallback_, this);
     
